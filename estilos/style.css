@@ -15,7 +15,7 @@ muitofraco = #BBD4E5
 body{
     display: grid;
      grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
-    background: linear-gradient(to top, #011C41,#12314d, #8cbbd8 80%);
+    background: linear-gradient(to top, #011C41,#12314d, #8cbbd8 66%);
     color: rgba(247, 244, 244, 0.87);
     -webkit-font-smoothing: antialiased;
 }
@@ -102,6 +102,7 @@ ul{
     grid-column: 2;
     height: 370px;
     overflow-y: scroll;
+    cursor: pointer;
 }
 .animaislista::-webkit-scrollbar {
     width: 18px;
@@ -211,4 +212,57 @@ body{
 .copy {
     margin-bottom: 0px;
 }
+}
+.jshtml .jstabcontent section {
+    display: none;
+}
+.jshtml .jstabcontent section.ativo {
+    display: block !important;
+    animation: show .5s forwards;
+}
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.jshtml .jsfaq dt::after {
+    content: '⬏';
+    padding-left: 10px;
+}
+.jshtml .jsfaq dt.ativo::after {
+    content: '↴';
+    padding-left: 10px;
+}
+.jshtml .jsfaq dd.ativo {
+    display: block;
+    animation: slidedown .5s forwards;
+}
+.jshtml .jsfaq dd {
+    display: none
+}
+
+@keyframes slidedown {
+    from {
+        opacity: 0;
+        max-height: 0px;
+    }
+    to {
+        opacity: 1;
+        max-height: 200px;
+    }
+}
+.jshtml .jssection {
+    opacity: 0;
+    transition: .3s;
+    transform: translate3d(-30px, 0, 0);
+}
+.jshtml .jssection.ativo {
+    opacity: 1;
+    transition: .3s;
+    transform: translate3d( 0, 0, 0);
 }
